@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TvShowReminder.Contracts\TvShowReminder.Contracts.csproj" />
+    <ProjectReference Include="..\TvShowReminder.DataSource\TvShowReminder.DataSource.csproj" />
+    <ProjectReference Include="..\TvShowReminder.TvMazeApi\TvShowReminder.TvMazeApi.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tv-show-reminder-core", "src\tv-show-reminder-core\tv-show-reminder-core.csproj", "{D58D90F8-9C06-4946-8348-A83792E5CEAA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.TvMazeApi", "src\TvShowReminder.TvMazeApi\TvShowReminder.TvMazeApi.csproj", "{B6180E0B-5735-4BFF-916B-FAA66E8F0BAA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.TvMazeApi.UnitTests", "test\TvShowReminder.TvMazeApi.UnitTests\TvShowReminder.TvMazeApi.UnitTests.csproj", "{58B69C01-1DA4-4EA3-B855-F52D778DEA80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E3B9E8A5-7E6D-4DA0-A68F-019A47A272CD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.TvMazeApi.IntegrationTests", "test\TvShowReminder.TvMazeApi.IntegrationTests\TvShowReminder.TvMazeApi.IntegrationTests.csproj", "{69758224-606C-41BA-AF00-FC98EF2EAB6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.Contracts", "src\TvShowReminder.Contracts\TvShowReminder.Contracts.csproj", "{B94B8D28-D42B-49F7-8C1B-D3B96B3A3FA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.DatabaseMigrations", "src\TvShowReminder.DatabaseMigrations\TvShowReminder.DatabaseMigrations.csproj", "{C89E8ACF-9377-401E-9D35-191609928D4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.DataSource", "src\TvShowReminder.DataSource\TvShowReminder.DataSource.csproj", "{39788E3C-B167-4923-891C-F14C4A9931C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Service", "src\TvShowReminder.Service\TvShowReminder.Service.csproj", "{7300E05C-05FD-434A-A342-DE2385B89E1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Unittests", "test\TvShowReminder.Unittests\TvShowReminder.Unittests.csproj", "{0DDD0E00-7331-4AD4-B381-71605796D562}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D58D90F8-9C06-4946-8348-A83792E5CEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D58D90F8-9C06-4946-8348-A83792E5CEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D58D90F8-9C06-4946-8348-A83792E5CEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D58D90F8-9C06-4946-8348-A83792E5CEAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6180E0B-5735-4BFF-916B-FAA66E8F0BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6180E0B-5735-4BFF-916B-FAA66E8F0BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6180E0B-5735-4BFF-916B-FAA66E8F0BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6180E0B-5735-4BFF-916B-FAA66E8F0BAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B69C01-1DA4-4EA3-B855-F52D778DEA80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B69C01-1DA4-4EA3-B855-F52D778DEA80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B69C01-1DA4-4EA3-B855-F52D778DEA80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B69C01-1DA4-4EA3-B855-F52D778DEA80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69758224-606C-41BA-AF00-FC98EF2EAB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69758224-606C-41BA-AF00-FC98EF2EAB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69758224-606C-41BA-AF00-FC98EF2EAB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69758224-606C-41BA-AF00-FC98EF2EAB6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94B8D28-D42B-49F7-8C1B-D3B96B3A3FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94B8D28-D42B-49F7-8C1B-D3B96B3A3FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94B8D28-D42B-49F7-8C1B-D3B96B3A3FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94B8D28-D42B-49F7-8C1B-D3B96B3A3FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C89E8ACF-9377-401E-9D35-191609928D4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C89E8ACF-9377-401E-9D35-191609928D4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C89E8ACF-9377-401E-9D35-191609928D4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C89E8ACF-9377-401E-9D35-191609928D4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39788E3C-B167-4923-891C-F14C4A9931C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39788E3C-B167-4923-891C-F14C4A9931C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39788E3C-B167-4923-891C-F14C4A9931C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39788E3C-B167-4923-891C-F14C4A9931C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7300E05C-05FD-434A-A342-DE2385B89E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7300E05C-05FD-434A-A342-DE2385B89E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7300E05C-05FD-434A-A342-DE2385B89E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7300E05C-05FD-434A-A342-DE2385B89E1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DDD0E00-7331-4AD4-B381-71605796D562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DDD0E00-7331-4AD4-B381-71605796D562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DDD0E00-7331-4AD4-B381-71605796D562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DDD0E00-7331-4AD4-B381-71605796D562}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{58B69C01-1DA4-4EA3-B855-F52D778DEA80} = {E3B9E8A5-7E6D-4DA0-A68F-019A47A272CD}
+		{69758224-606C-41BA-AF00-FC98EF2EAB6F} = {E3B9E8A5-7E6D-4DA0-A68F-019A47A272CD}
+		{0DDD0E00-7331-4AD4-B381-71605796D562} = {E3B9E8A5-7E6D-4DA0-A68F-019A47A272CD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {245678B7-C973-423F-A4DA-BD4D55E8C0E5}
+	EndGlobalSection
+EndGlobal

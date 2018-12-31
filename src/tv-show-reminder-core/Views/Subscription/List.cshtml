@@ -1,0 +1,57 @@
+﻿@using System.Globalization
+@model TvShowReminder.Models.SubscriptionsListViewModel
+
+@{
+    ViewBag.Title = "Lista över prenumerationer";
+}
+
+<h1>Prenumerationer</h1>
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-striped" id="table">
+            <thead>
+                <tr>
+                    <th>TV-program</th>
+                    <th>Nästa avsnitt</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var subscription in Model.Subscriptions)
+                {
+                    <tr>
+                        <td>@subscription.Subscription.TvShowName</td>
+                        <td>
+                            @if (subscription.NextEpisode != null)
+                            {
+                                <span>
+                                    @subscription.NextEpisode.AirDate.ToString("dddd", CultureInfo.CurrentUICulture) @subscription.NextEpisode.AirDate.Day/@subscription.NextEpisode.AirDate.Month (@subscription.NextEpisode.Title)
+                                </span>
+                            }
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("RefreshEpisodesForSubscription", "Subscription"))
+                            {
+                                <input type="hidden" name="subscriptionId" value="@subscription.Subscription.Id" />
+                                <button type="submit">
+                                    <span class="fa fa-refresh"></span>
+                                </button>
+                            }
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("Delete", "Subscription"))
+                            {
+                                <input type="hidden" name="subscriptionId" value="@subscription.Subscription.Id" />
+                                <button type="submit">
+                                    <span class="fa fa-minus"></span>
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

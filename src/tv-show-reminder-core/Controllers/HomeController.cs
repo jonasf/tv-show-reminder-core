@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using tv_show_reminder_core.Models;
 using TvShowReminder.Contracts.Command;
@@ -12,6 +11,7 @@ using TvShowReminder.Models;
 
 namespace tv_show_reminder_core.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ICommandSender _commandSender;

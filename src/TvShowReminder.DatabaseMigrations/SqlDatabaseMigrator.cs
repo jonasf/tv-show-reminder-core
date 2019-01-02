@@ -26,7 +26,7 @@ namespace TvShowReminder.DatabaseMigrations
             };
 
             var options = new MigrationOptions { PreviewOnly = false, Timeout = 60 };
-            var factory = new FluentMigrator.Runner.Processors.SqlServer.SqlServer2016ProcessorFactory();
+            var factory = new FluentMigrator.Runner.Processors.Postgres.PostgresProcessorFactory();
             var processor = factory.Create(_connectionString, announcer, options);
             var runner = new MigrationRunner(assembly, migrationContext, processor);
             runner.MigrateUp(true);

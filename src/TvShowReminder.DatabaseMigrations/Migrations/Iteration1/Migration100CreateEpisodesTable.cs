@@ -6,21 +6,21 @@ namespace TvShowReminder.DatabaseMigrations.Migrations.Iteration1
     [Migration(101)]
     public class Migration100CreateEpisodesTable : Migration
     {
-        private const string TableName = "Episodes";
+        private const string TableName = "episodes";
 
         public override void Up()
         {
             Create.Table(TableName)
-                .WithColumn("Id").AsInt32().Identity()
-                .WithColumn("SubscriptionId").AsInt32()
-                .WithColumn("SeasonNumber").AsInt32()
-                .WithColumn("EpisodeNumber").AsInt32()
-                .WithColumn("Title").AsString(255)
-                .WithColumn("AirDate").AsDate();
+                .WithColumn("id").AsInt32().Identity()
+                .WithColumn("subscriptionid").AsInt32()
+                .WithColumn("seasonnumber").AsInt32()
+                .WithColumn("episodenumber").AsInt32()
+                .WithColumn("title").AsString(255)
+                .WithColumn("airdate").AsDate();
 
-            Create.PrimaryKey(string.Format("PK_{0}", TableName))
+            Create.PrimaryKey(string.Format("pk_{0}", TableName))
                 .OnTable(TableName)
-                .Column("Id");
+                .Column("id");
         }
 
         public override void Down()

@@ -22,7 +22,7 @@ namespace TvShowReminder.DataSource
 
         public Episode GetNextEpisode(int subscriptionId)
         {
-            return _connection.Open(c => c.Query<Episode>("SELECT top 1 Id, SubscriptionId,SeasonNumber, EpisodeNumber, Title, AirDate from Episodes where SubscriptionId = @subscriptionId order by AirDate ASC", new {subscriptionId })).FirstOrDefault();
+            return _connection.Open(c => c.Query<Episode>("SELECT Id, SubscriptionId,SeasonNumber, EpisodeNumber, Title, AirDate from Episodes where SubscriptionId = @subscriptionId order by AirDate ASC LIMIT 1", new {subscriptionId })).FirstOrDefault();
         }
     }
 }

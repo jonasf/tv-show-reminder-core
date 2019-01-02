@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace TvShowReminder.DataSource
 {
@@ -15,7 +15,7 @@ namespace TvShowReminder.DataSource
 
         public void Open(Action<IDbConnection> action)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
 
@@ -25,7 +25,7 @@ namespace TvShowReminder.DataSource
 
         public T Open<T>(Func<IDbConnection, T> action)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
 

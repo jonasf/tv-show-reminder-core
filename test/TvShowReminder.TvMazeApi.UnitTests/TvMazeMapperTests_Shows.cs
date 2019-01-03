@@ -21,7 +21,7 @@ namespace TvShowReminder.TvMazeApi.UnitTests
         {
             Assert.NotNull(_result);
             Assert.NotEmpty(_result);
-            Assert.Equal(_result.Count(), 2);
+            Assert.Equal(2, _result.Count());
         }
 
         [Fact]

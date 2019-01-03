@@ -42,8 +42,8 @@ namespace TvShowReminder.Unittests
             _episodesQueryDataSource.Received(1).GetNextEpisode(1);
 
             var subscription = result.Subscriptions.First();
-            Assert.Equal(subscription.Subscription.TvShowId, 555);
-            Assert.Equal(subscription.NextEpisode.Title, "Hello");
+            Assert.Equal(555, subscription.Subscription.TvShowId);
+            Assert.Equal("Hello", subscription.NextEpisode.Title);
         }
 
         private Subscription CreateSubscription()

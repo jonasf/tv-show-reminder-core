@@ -73,7 +73,7 @@ namespace TvShowReminder.Unittests
 
             var result = _handler.Handle(new SearchTvShowQuery { Query = query });
             var show1 = result.TvShows.First();
-            Assert.Equal(true, show1.IsSubscribed);
+            Assert.True(show1.IsSubscribed);
         }
 
         [Fact]

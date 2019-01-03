@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    image: jonasfred/tv-show-reminder:latest
+    ports:
+     - "8080:8080"
+    environment:
+     - 'AppSettings:MasterPassword=replace-me'
+     - 'ConnectionStrings:DefaultConnection=Server=127.0.0.1;Port=5432;Database=myDataBase;User Id=myUsername;Password=myPassword;'

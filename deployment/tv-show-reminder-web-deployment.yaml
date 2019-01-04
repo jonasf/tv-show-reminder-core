@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.17.0 (a74acad)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: tv-show-reminder-web
+  name: tv-show-reminder-web
+spec:
+  replicas: 2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: tv-show-reminder-web
+    spec:
+      containers:
+      - env:
+        - name: AppSettings__MasterPassword
+          value: replace-me
+        - name: ConnectionStrings__DefaultConnection
+          value: Server=127.0.0.1;Port=5432;Database=myDataBase;User Id=myUsername;Password=myPassword;
+        image: jonasfred/tv-show-reminder:latest
+        name: tv-show-reminder-web
+        ports:
+        - containerPort: 8080
+        resources: {}
+      restartPolicy: Always
+status: {}

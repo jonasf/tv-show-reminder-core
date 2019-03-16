@@ -1,3 +1,4 @@
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TvShowReminder.Framework.Dependencies;
 
 namespace tv_show_reminder_spa
 {
@@ -27,6 +29,14 @@ namespace tv_show_reminder_spa
             {
                 configuration.RootPath = "ClientApp/build";
             });
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new UtilitiesModule());
+            builder.RegisterModule(new DataSourceModule(Configuration));
+            builder.RegisterModule(new ServiceModule());
+            builder.RegisterModule(new StartupTaskModule());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

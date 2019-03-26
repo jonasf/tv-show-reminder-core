@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TvShowReminder.Contracts.Command;
 using TvShowReminder.Contracts.Dto;
 using TvShowReminder.Contracts.Query;
 using TvShowReminder.Framework;
@@ -44,6 +45,17 @@ namespace tv_show_reminder_spa.Controllers
             }
 
             return result;
+        }
+
+        [HttpPost("[action]")]
+        public bool Delete(int[] episodeIds)
+        {
+            if (episodeIds != null)
+            {
+                var command = new DeleteEpisodesCommand { EpisodeIds = episodeIds };
+                _commandSender.Send(command);
+            }
+            return true;
         }
 
         public class UpcomingEpisode

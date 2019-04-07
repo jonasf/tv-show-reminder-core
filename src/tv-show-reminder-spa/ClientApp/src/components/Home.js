@@ -84,6 +84,7 @@ export class Home extends Component {
     return (
       <div>
         <h1>Kommande avsnitt</h1>
+        {this.state.upcomingepisodes <=0 ? "Inga TV-program de närmaste dagarna." : null}
         <form onSubmit={this.handleSubmit}>
           {contents}
           <input type="submit" value="Radera" className="btn btn-primary" />

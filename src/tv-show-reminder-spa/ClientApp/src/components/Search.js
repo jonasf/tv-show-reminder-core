@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactNotification from "react-notifications-component";
 
 export class Search extends Component {
     static displayName = Search.name;
@@ -10,20 +11,26 @@ export class Search extends Component {
         this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.addsubscription = this.addsubscription.bind(this);
+        this.notifySuccess = this.notifySuccess.bind(this);
+        this.notificationDOMRef = React.createRef();
     }
     
     handleSubmit(event) {
-        event.preventDefault();
-        this.setState({loading: true});
-        fetch("api/SubscriptionData/Search?searchTerm=" + this.state.searchterm)
-        .then(response => response.json())
-        .then(data => {
-          this.setState({
-            tvshows: data,
-            loading: false,
-            searchtermforresult: this.state.searchterm
-          });
+      event.preventDefault();
+      this.search(event);  
+    }
+
+    search(event) {
+      this.setState({loading: true});
+      fetch("api/SubscriptionData/Search?searchTerm=" + this.state.searchterm)
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          tvshows: data,
+          loading: false,
+          searchtermforresult: this.state.searchterm
         });
+      });
     }
 
     handleSearchTermChange(event) {
@@ -32,8 +39,7 @@ export class Search extends Component {
 
     addsubscription(showId, showName, event){
       event.preventDefault();
-      console.log(showId + ' : ' + showName);
-      
+      // TODO: Remove button instead of reloading list
       fetch('api/SubscriptionData/Add', {
         method: 'POST',
         headers: {
@@ -44,6 +50,24 @@ export class Search extends Component {
           showId: showId,
           showName: showName,
         })
+      }).then(response => {
+        this.notifySuccess(showName, event);
+        this.setState({loading: true});
+        this.search();
+      });
+    }
+
+    notifySuccess(showName, event){
+      this.notificationDOMRef.current.addNotification({
+        title: "Prenumeration sparad",
+        message: showName + " är tillagd i dina prenumerationer.",
+        type: "success",
+        insert: "top",
+        container: "top-center",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: { duration: 10000 },
+        dismissable: { click: true }
       });
     }
 
@@ -72,6 +96,7 @@ export class Search extends Component {
                         <td>{show.name}</td>
                         <td>{show.startedYear}</td>
                         <td><a href={show.link}target="_blank">Mer info.</a></td>
+                        <ReactNotification ref={this.notificationDOMRef} />
                         <td>{show.isSubscribed ? <span>&nbsp;</span> : <button className="btn btn-secondary" type="button" onClick={(e) => this.addsubscription(show.id, show.name, e)}><i className="fa fa-plus"></i></button>}</td>
                       </tr>
                     ))}

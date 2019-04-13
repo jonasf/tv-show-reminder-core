@@ -55,6 +55,39 @@ namespace tv_show_reminder_spa.Controllers
             return true;
         }
 
+        [HttpPost("[action]")]
+        public bool Delete([FromBody] int subscriptionId)
+        {
+            var command = new DeleteSubscriptionCommand
+            {
+                SubscriptionId = subscriptionId
+            };
+
+            _commandSender.Send(command);
+
+            return true;
+        }
+
+        [HttpPost("[action]")]
+        public bool RefreshEpisodesForSubscription([FromBody] int subscriptionId)
+        {
+            var command = new RefreshEpisodesCommand
+            {
+                SubscriptionId = subscriptionId
+            };
+
+            _commandSender.Send(command);
+
+            return true;
+        }
+
+        [HttpGet("[action]")]
+        public IEnumerable<SubscriptionWithNextEpisodeDto> List()
+        {
+            var showsWithNextEpisode = _querySender.Send(new AllSubscriptionsWithNextEpisodeQuery());
+            return showsWithNextEpisode.Subscriptions.OrderBy(s => s.Subscription.TvShowName);
+        }
+
         private bool HasSearchParameters(string query)
         {
             return !string.IsNullOrEmpty(query);

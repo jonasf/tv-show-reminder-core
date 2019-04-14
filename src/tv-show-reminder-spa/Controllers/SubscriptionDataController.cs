@@ -81,6 +81,13 @@ namespace tv_show_reminder_spa.Controllers
             return true;
         }
 
+        [HttpPost("[action]")]
+        public bool RefreshEpisodesForAllSubscriptions()
+        {
+            _commandSender.Send(new UpdateEpisodesForAllSubscriptionsCommand());
+            return true;
+        }
+
         [HttpGet("[action]")]
         public IEnumerable<SubscriptionWithNextEpisodeDto> List()
         {

@@ -24,10 +24,8 @@ export class Authentication extends Component {
         }).then(response => response.json()
         ).then(data => {
             if(!data.token) {throw Error();}
-            console.log(data)
-            // Logga in etc
-            // Spara i localstorage
             localStorage.setItem('user', JSON.stringify(data));
+            this.props.history.push('/')
         }).catch(error => {
             this.setState({errors: 'Ogiltigt lösenord.'})
         }); 

@@ -4,6 +4,7 @@ import { Layout } from './components/Layout';
 import { Home } from './components/Home';
 import { Search } from './components/Search';
 import { Subscriptions } from './components/Subscriptions';
+import { Authentication } from './components/Authentication';
 
 export default class App extends Component {
   static displayName = App.name;
@@ -14,6 +15,7 @@ export default class App extends Component {
         <Route exact path='/' component={Home} />
         <Route exact path='/search' component={Search} />
         <Route exact path='/subscriptions' component={Subscriptions} />
+        <Route exact path='/authentication' component={Authentication} />
       </Layout>
     );
   }

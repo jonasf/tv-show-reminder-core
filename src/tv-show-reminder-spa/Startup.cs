@@ -6,7 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using TvShowReminder.Framework.Dependencies;
+using System.Text;
 
 namespace tv_show_reminder_spa
 {
@@ -29,6 +32,23 @@ namespace tv_show_reminder_spa
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+            
+                        IssuerSigningKey = new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes(Configuration.GetValue<string>("AppSettings:JwtSecretKey"))
+                        )
+                    };
+                });
+
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -56,6 +76,7 @@ namespace tv_show_reminder_spa
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

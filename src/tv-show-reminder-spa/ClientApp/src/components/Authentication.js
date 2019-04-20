@@ -27,6 +27,7 @@ export class Authentication extends Component {
             console.log(data)
             // Logga in etc
             // Spara i localstorage
+            localStorage.setItem('user', JSON.stringify(data));
         }).catch(error => {
             this.setState({errors: 'Ogiltigt lösenord.'})
         }); 

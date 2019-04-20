@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactNotification from "react-notifications-component";
+import { authHeader } from './auth-header';
 
 export class Subscriptions extends Component {
   static displayName = Subscriptions.name;
@@ -16,8 +17,11 @@ export class Subscriptions extends Component {
   }
 
   getSubscriptions(event) {
-    fetch("api/SubscriptionData/List")
-      .then(response => response.json())
+    fetch("api/SubscriptionData/List", {
+      headers: {
+        'Authorization': authHeader()
+      }
+    }).then(response => response.json())
       .then(data => {
         this.setState({
           subscriptions: data,
@@ -34,6 +38,7 @@ export class Subscriptions extends Component {
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': authHeader(),
     },
     body: subscriptionId,
     }).then(response => {
@@ -51,6 +56,7 @@ export class Subscriptions extends Component {
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': authHeader(),
     },
     body: subscriptionId,
     }).then(response => {

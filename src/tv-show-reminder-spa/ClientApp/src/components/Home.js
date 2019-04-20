@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { authHeader } from './auth-header';
 
 export class Home extends Component {
   static displayName = Home.name;
@@ -13,8 +14,11 @@ export class Home extends Component {
   }
 
   getEpisodes(event) {
-    fetch("api/EpisodeData/UpcomingEpisodes")
-      .then(response => response.json())
+    fetch("api/EpisodeData/UpcomingEpisodes", {
+      headers: {
+        'Authorization': authHeader()
+      }
+    }).then(response => response.json())
       .then(data => {
         this.setState({
           upcomingepisodes: data,
@@ -43,7 +47,8 @@ export class Home extends Component {
       method: "POST",
       headers: {
         Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Authorization': authHeader()
       },
       body: JSON.stringify(this.state.episodestodelete)
     }).then(response => {

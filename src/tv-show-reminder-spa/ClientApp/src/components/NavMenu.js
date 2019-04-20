@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import ReactNotification from "react-notifications-component";
+import { authHeader } from './auth-header';
 import './NavMenu.css';
 
 export class NavMenu extends Component {
@@ -32,6 +33,7 @@ export class NavMenu extends Component {
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+        'Authorization': authHeader(),
     },
     }).then(response => {
       this.notifySuccess();

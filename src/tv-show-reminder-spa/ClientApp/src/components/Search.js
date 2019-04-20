@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactNotification from "react-notifications-component";
+import { authHeader } from './auth-header';
 
 export class Search extends Component {
     static displayName = Search.name;
@@ -22,8 +23,11 @@ export class Search extends Component {
 
     search(event) {
       this.setState({loading: true});
-      fetch("api/SubscriptionData/Search?searchTerm=" + this.state.searchterm)
-      .then(response => response.json())
+      fetch("api/SubscriptionData/Search?searchTerm=" + this.state.searchterm, {
+        headers: {
+          'Authorization': authHeader()
+        }
+      }).then(response => response.json())
       .then(data => {
         this.setState({
           tvshows: data,
@@ -45,6 +49,7 @@ export class Search extends Component {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
+          'Authorization': authHeader(),
         },
         body: JSON.stringify({
           showId: showId,

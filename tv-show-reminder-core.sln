@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tv-show-reminder-core", "src\tv-show-reminder-core\tv-show-reminder-core.csproj", "{D58D90F8-9C06-4946-8348-A83792E5CEAA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.TvMazeApi", "src\TvShowReminder.TvMazeApi\TvShowReminder.TvMazeApi.csproj", "{B6180E0B-5735-4BFF-916B-FAA66E8F0BAA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.TvMazeApi.UnitTests", "test\TvShowReminder.TvMazeApi.UnitTests\TvShowReminder.TvMazeApi.UnitTests.csproj", "{58B69C01-1DA4-4EA3-B855-F52D778DEA80}"
@@ -15,13 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.TvMazeApi.In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.Contracts", "src\TvShowReminder.Contracts\TvShowReminder.Contracts.csproj", "{B94B8D28-D42B-49F7-8C1B-D3B96B3A3FA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.DatabaseMigrations", "src\TvShowReminder.DatabaseMigrations\TvShowReminder.DatabaseMigrations.csproj", "{C89E8ACF-9377-401E-9D35-191609928D4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.DatabaseMigrations", "src\TvShowReminder.DatabaseMigrations\TvShowReminder.DatabaseMigrations.csproj", "{C89E8ACF-9377-401E-9D35-191609928D4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.DataSource", "src\TvShowReminder.DataSource\TvShowReminder.DataSource.csproj", "{39788E3C-B167-4923-891C-F14C4A9931C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.DataSource", "src\TvShowReminder.DataSource\TvShowReminder.DataSource.csproj", "{39788E3C-B167-4923-891C-F14C4A9931C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Service", "src\TvShowReminder.Service\TvShowReminder.Service.csproj", "{7300E05C-05FD-434A-A342-DE2385B89E1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.Service", "src\TvShowReminder.Service\TvShowReminder.Service.csproj", "{7300E05C-05FD-434A-A342-DE2385B89E1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvShowReminder.Unittests", "test\TvShowReminder.Unittests\TvShowReminder.Unittests.csproj", "{0DDD0E00-7331-4AD4-B381-71605796D562}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TvShowReminder.Unittests", "test\TvShowReminder.Unittests\TvShowReminder.Unittests.csproj", "{0DDD0E00-7331-4AD4-B381-71605796D562}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tv-show-reminder-spa", "src\tv-show-reminder-spa\tv-show-reminder-spa.csproj", "{9B4F749C-E25E-4292-A66F-660DF2B16A4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D58D90F8-9C06-4946-8348-A83792E5CEAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D58D90F8-9C06-4946-8348-A83792E5CEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D58D90F8-9C06-4946-8348-A83792E5CEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D58D90F8-9C06-4946-8348-A83792E5CEAA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B6180E0B-5735-4BFF-916B-FAA66E8F0BAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B6180E0B-5735-4BFF-916B-FAA66E8F0BAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6180E0B-5735-4BFF-916B-FAA66E8F0BAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,6 +61,10 @@ Global
 		{0DDD0E00-7331-4AD4-B381-71605796D562}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DDD0E00-7331-4AD4-B381-71605796D562}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DDD0E00-7331-4AD4-B381-71605796D562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B4F749C-E25E-4292-A66F-660DF2B16A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B4F749C-E25E-4292-A66F-660DF2B16A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B4F749C-E25E-4292-A66F-660DF2B16A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B4F749C-E25E-4292-A66F-660DF2B16A4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

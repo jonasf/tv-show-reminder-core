@@ -1,10 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using tv_show_reminder_spa.Controllers.Models;
 using TvShowReminder.Contracts.Command;
 using TvShowReminder.Contracts.Dto;
 using TvShowReminder.Contracts.Query;
@@ -100,12 +98,6 @@ namespace tv_show_reminder_spa.Controllers
         private bool HasSearchParameters(string query)
         {
             return !string.IsNullOrEmpty(query);
-        }
-
-        public class AddSubscriptionParameter
-        {
-            public int ShowId { get; set; }
-            public string showName { get; set; }
         }
     }
 }

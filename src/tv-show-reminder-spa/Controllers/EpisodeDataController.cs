@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using tv_show_reminder_spa.Controllers.Models;
 using TvShowReminder.Contracts.Command;
-using TvShowReminder.Contracts.Dto;
 using TvShowReminder.Contracts.Query;
 using TvShowReminder.Framework;
 
@@ -58,15 +55,6 @@ namespace tv_show_reminder_spa.Controllers
                 _commandSender.Send(command);
             }
             return true;
-        }
-
-        public class UpcomingEpisode
-        {
-            public int Id { get; set; }
-            public string AirDate { get; set; }
-            public string TvShowName { get; set; }
-            public string Title { get; set; }
-            public string SeasonNumber { get; set; }
         }
     }
 }

@@ -8,3 +8,5 @@ services:
      - 'AppSettings__MasterPassword=replace-me'
      - 'ConnectionStrings__DefaultConnection=Server=127.0.0.1;Port=5432;Database=tvshowreminder_db;User Id=test_user;Password=test;'
      - 'AppSettings__JwtSecretKey=replace-me-with-something-complicated'
+    # For debugging locally. Does currently not work on Windows
+    #network_mode: "host"

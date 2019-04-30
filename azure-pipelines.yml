@@ -48,7 +48,7 @@ steps:
   displayName: 'Build Docker image for Website'
 
 - script: |
-    docker login -u $(dockerId) -p $(pswd)
+    docker login -u $(dockerId) -p $env:pswd
     docker push $(dockerId)/$(imageNameWeb):$(Build.BuildId)
     docker push $(dockerId)/$(imageNameWeb):latest
   env:

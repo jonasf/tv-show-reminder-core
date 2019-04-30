@@ -11,6 +11,8 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  dockerId: jonasfred
+  imageNameWeb: tv-show-reminder
 
 steps:
 
@@ -41,3 +43,6 @@ steps:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
     reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
+
+- script: docker build -t $(dockerId)/$(imageNameWeb) .
+  displayName: 'Build Docker image for Website'

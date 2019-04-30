@@ -44,5 +44,5 @@ steps:
     summaryFileLocation: '$(Build.SourcesDirectory)/CodeCoverage/Cobertura.xml'
     reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
 
-- script: docker build -t $(dockerId)/$(imageNameWeb) .
+- script: docker build -t $(dockerId)/$(imageNameWeb):latest -t $(dockerId)/$(imageNameWeb):$(Build.BuildId) .
   displayName: 'Build Docker image for Website'

@@ -49,7 +49,8 @@ steps:
   displayName: 'Build Docker image for Website'
 
 - script: |
-    docker login -u $(dockerId) -p $(dockerPassword)
+    echo "$(dockerPassword)" | docker login -u "$(dockerId)" --password-stdin
+#    docker login -u $(dockerId) --password-stdin $(dockerPassword)    
 #    docker push $(dockerId)/$(imageNameWeb):$(Build.BuildId)
 #    docker push $(dockerId)/$(imageNameWeb):latest
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))

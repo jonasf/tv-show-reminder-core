@@ -11,8 +11,8 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  dockerId: jonasfred
-  imageNameWeb: tv-show-reminder
+  dockerImageNameWeb: tv-show-reminder
+  ReleaseVersion: $(MajorVersion).$(Rev:r)
 
 steps:
 
@@ -45,13 +45,12 @@ steps:
     reportDirectory: '$(Build.SourcesDirectory)/CodeCoverage'
 
 - script: |
-    docker build -t $(dockerId)/$(imageNameWeb):latest -t $(dockerId)/$(imageNameWeb):$(Build.BuildId) .
-  displayName: 'Build Docker image for Website'
+    docker build -t $(dockerId)/$(dockerImageNameWeb):latest -t $(dockerId)/$(dockerImageNameWeb):$(ReleaseVersion) .
+  displayName: 'Build Docker images'
 
 - script: |
     echo "$(dockerPassword)" | docker login -u "$(dockerId)" --password-stdin
-#    docker login -u $(dockerId) --password-stdin $(dockerPassword)    
-#    docker push $(dockerId)/$(imageNameWeb):$(Build.BuildId)
-#    docker push $(dockerId)/$(imageNameWeb):latest
+#    docker push $(dockerId)/$(dockerImageNameWeb):$(ReleaseVersion)
+#    docker push $(dockerId)/$(dockerImageNameWeb):latest
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-  displayName: 'Publish Docker image (from master branch)'
+  displayName: 'Publish Docker images (from master branch)'

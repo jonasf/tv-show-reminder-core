@@ -52,4 +52,4 @@ steps:
     docker push $(dockerId)/$(imageNameWeb):$(Build.BuildId)
     docker push $(dockerId)/$(imageNameWeb):latest
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-  displayName: 'Publish Docker image (from master branch)' 
+  displayName: 'Publish Docker image (from master branch)'

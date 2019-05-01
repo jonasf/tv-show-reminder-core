@@ -47,19 +47,9 @@ steps:
 - script: docker build -t $(dockerId)/$(imageNameWeb):latest -t $(dockerId)/$(imageNameWeb):$(Build.BuildId) .
   displayName: 'Build Docker image for Website'
 
-#- script: |
-#    docker login -u $(dockerId) -p $env:pswd
-#    docker push $(dockerId)/$(imageNameWeb):$(Build.BuildId)
-#    docker push $(dockerId)/$(imageNameWeb):latest
-#  env:
-#    pswd: $(dockerPassword)
-#  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-#  displayName: 'Publish Docker image (from master branch)' 
-- powershell: |
-    Write-Host "test variable: $(testvariable)"
-    Write-Host "secret test variable: $(secrettestvariable)"
-    Write-Host "test variable as env: $env:TESTVARIABLE"
-    Write-Host "secret test variable as env: $env:SECRET_TESTVARIABLE"
-  env:
-    TESTVARIABLE: $(testvariable)
-    SECRET_TESTVARIABLE: $(secrettestvariable)
+- script: |
+    docker login -u $(dockerId) -p $(dockerPassword)
+    docker push $(dockerId)/$(imageNameWeb):$(Build.BuildId)
+    docker push $(dockerId)/$(imageNameWeb):latest
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  displayName: 'Publish Docker image (from master branch)' 

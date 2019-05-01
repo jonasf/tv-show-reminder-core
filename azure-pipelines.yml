@@ -12,7 +12,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   dockerImageNameWeb: tv-show-reminder
-  ReleaseVersion: $(MajorVersion).$(Rev:r)
+  ReleaseVersion: $(MajorVersion).$(Build.BuildId)
 
 steps:
 

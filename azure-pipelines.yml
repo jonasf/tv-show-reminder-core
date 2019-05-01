@@ -50,7 +50,7 @@ steps:
 
 - script: |
     echo "$(dockerPassword)" | docker login -u "$(dockerId)" --password-stdin
-#    docker push $(dockerId)/$(dockerImageNameWeb):$(ReleaseVersion)
-#    docker push $(dockerId)/$(dockerImageNameWeb):latest
+    docker push $(dockerId)/$(dockerImageNameWeb):$(ReleaseVersion)
+    docker push $(dockerId)/$(dockerImageNameWeb):latest
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   displayName: 'Publish Docker images (from master branch)'

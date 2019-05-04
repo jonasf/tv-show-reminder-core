@@ -1,0 +1,18 @@
+replicaCount: 1
+restartPolicy: Always
+
+image:
+  repository: jonasfred/tv-show-reminder
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 8080
+
+databaseService:
+  externalName: replace-with-external-service-url
+
+environment:
+  jwtSecretKey: replace-me-with-something-complicated
+  masterPassword: replace-me
+  dbConnectionString: Server=tvshowreminderpostgres;Port=5432;Database=tvshowreminder_db;User Id=test_user;Password=test;

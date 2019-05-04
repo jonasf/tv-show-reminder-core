@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    service: web
+  name: tv-show-reminder-web
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: web
+    spec:
+      containers:
+      - env:
+        - name: AppSettings__JwtSecretKey
+          value: {{ .Values.environment.jwtSecretKey }}
+        - name: AppSettings__MasterPassword
+          value: {{ .Values.environment.masterPassword }}
+        - name: ConnectionStrings__DefaultConnection
+          value: {{ .Values.environment.dbConnectionString }}
+        image: jonasfred/tv-show-reminder:latest
+        name: tv-show-reminder-web
+        ports:
+        - containerPort: {{ .Values.service.port }}
+        resources: {}
+      restartPolicy: {{ .Values.restartPolicy }}
+status: {}

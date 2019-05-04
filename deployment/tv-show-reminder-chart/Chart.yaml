@@ -1,0 +1,7 @@
+name: tv-show-reminder-chart
+description: A Helm Chart for tv-show-reminder
+version: 0.0.1
+keywords:
+  - tv-show-reminder
+sources:
+home:

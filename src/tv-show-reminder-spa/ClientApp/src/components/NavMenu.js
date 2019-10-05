@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import ReactNotification from "react-notifications-component";
+import { store } from 'react-notifications-component';
 import { authHeader } from './auth-header';
 import './NavMenu.css';
 
@@ -14,7 +15,6 @@ export class NavMenu extends Component {
     this.toggleNavbar = this.toggleNavbar.bind(this);
     this.refreshEpisodesForAllSubscriptions = this.refreshEpisodesForAllSubscriptions.bind(this);
     this.notifySuccess = this.notifySuccess.bind(this);
-    this.notificationDOMRef = React.createRef();
     this.state = {
       collapsed: true
     };
@@ -41,7 +41,7 @@ export class NavMenu extends Component {
   }
 
   notifySuccess(event){
-    this.notificationDOMRef.current.addNotification({
+    store.addNotification({
       title: "Uppdatering av program",
       message: "Samtliga prenumerationer uppdaterade.",
       type: "success",

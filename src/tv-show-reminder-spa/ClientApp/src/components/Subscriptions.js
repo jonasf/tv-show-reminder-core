@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactNotification from "react-notifications-component";
+import { store } from 'react-notifications-component';
 import { authHeader } from './auth-header';
 
 export class Subscriptions extends Component {
@@ -12,7 +13,6 @@ export class Subscriptions extends Component {
     this.refreshEpisodes = this.refreshEpisodes.bind(this);
     this.deleteSubscription = this.deleteSubscription.bind(this);
     this.notifySuccess = this.notifySuccess.bind(this);
-    this.notificationDOMRef = React.createRef();
     this.getSubscriptions();
   }
 
@@ -67,7 +67,7 @@ export class Subscriptions extends Component {
   }
 
   notifySuccess(title, body, event){
-    this.notificationDOMRef.current.addNotification({
+    store.addNotification({
       title: title,
       message: body,
       type: "success",

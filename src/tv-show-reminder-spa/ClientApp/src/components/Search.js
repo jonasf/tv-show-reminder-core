@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactNotification from "react-notifications-component";
+import { store } from 'react-notifications-component';
 import { authHeader } from './auth-header';
 
 export class Search extends Component {
@@ -13,7 +14,6 @@ export class Search extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.addsubscription = this.addsubscription.bind(this);
         this.notifySuccess = this.notifySuccess.bind(this);
-        this.notificationDOMRef = React.createRef();
     }
     
     handleSubmit(event) {
@@ -63,7 +63,7 @@ export class Search extends Component {
     }
 
     notifySuccess(showName, event){
-      this.notificationDOMRef.current.addNotification({
+      store.addNotification({
         title: "Prenumeration sparad",
         message: showName + " är tillagd i dina prenumerationer.",
         type: "success",

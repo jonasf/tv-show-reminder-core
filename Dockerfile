@@ -3,7 +3,7 @@ WORKDIR /app
 ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
 RUN curl -sL https://deb.nodesource.com/setup_10.x |  bash -
 RUN apt-get install -y nodejs

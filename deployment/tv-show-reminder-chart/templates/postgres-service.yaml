@@ -4,6 +4,7 @@ metadata:
  labels:
   service: external-database
  name: tvshowreminderpostgres
+ namespace: {{ .Values.namespace }}
 spec:
  type: ExternalName
  externalName: {{ .Values.databaseService.externalName }}

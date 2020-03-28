@@ -1,6 +1,8 @@
 replicaCount: 1
 restartPolicy: Always
 
+namespace: tv-show-reminder
+
 image:
   repository: jonasfred/tv-show-reminder
   tag: latest
@@ -16,3 +18,12 @@ environment:
   jwtSecretKey: replace-me-with-something-complicated
   masterPassword: replace-me
   dbConnectionString: Server=tvshowreminderpostgres;Port=5432;Database=tvshowreminder_db;User Id=test_user;Password=test;
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: mysubdomain.mydomain.dev

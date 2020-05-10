@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactNotification from "react-notifications-component";
 import { store } from 'react-notifications-component';
 import { authHeader } from './auth-header';
 
@@ -101,7 +100,6 @@ export class Search extends Component {
                         <td>{show.name}</td>
                         <td>{show.startedYear}</td>
                         <td><a href={show.link}target="_blank">Mer info.</a></td>
-                        <ReactNotification ref={this.notificationDOMRef} />
                         <td>{show.isSubscribed ? <span>&nbsp;</span> : <button className="btn btn-secondary" type="button" onClick={(e) => this.addsubscription(show.id, show.name, e)}><i className="fa fa-plus"></i></button>}</td>
                       </tr>
                     ))}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import ReactNotification from "react-notifications-component";
 import { store } from 'react-notifications-component';
 import { authHeader } from './auth-header';
 import './NavMenu.css';
@@ -62,7 +61,6 @@ export class NavMenu extends Component {
             <NavbarBrand tag={Link} to="/">TV-kollen</NavbarBrand>
             <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-              <ReactNotification ref={this.notificationDOMRef} />
               <ul className="navbar-nav flex-grow">
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/search">Sök</NavLink>

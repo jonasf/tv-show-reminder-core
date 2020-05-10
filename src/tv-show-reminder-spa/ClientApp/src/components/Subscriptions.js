@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactNotification from "react-notifications-component";
 import { store } from 'react-notifications-component';
 import { authHeader } from './auth-header';
 
@@ -129,7 +128,6 @@ export class Subscriptions extends Component {
 
     return (
       <div>
-      <ReactNotification ref={this.notificationDOMRef} />
       <h1>Prenumerationer</h1>
       {contents}
       </div>
